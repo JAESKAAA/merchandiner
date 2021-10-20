@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    
     <!DOCTYPE html>
     <html lang="ko">
       <head>
@@ -8,11 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Merchan, Diner !</title>
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/main-page.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/main-page.css">
     <!-- <link rel="stylesheet" href="project-style.css"> -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <script src="https://kit.fontawesome.com/84aa3774b7.js" crossorigin="anonymous"></script>
     <link rel=”stylesheet” href=”http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css“>
     <style>
@@ -83,18 +85,19 @@
 <body class="center">
     <!--가게이름 및 주소-->
     <div class="container">
+       	<input type="hidden" name="store_num" value="${store.store_num }">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto" style="margin-bottom: 80px;">
-                <h5 class="mb-3" style="color: rgb(160, 28, 85);"><strong>가게이름</strong></h5>
+                <h5 class="mb-3" style="color: rgb(160, 28, 85);"><strong>${store.store_name }</strong></h5>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="name">가게주소</label>
+                        <label for="name">${store.store_address }</label>
                     </div>
                 </div>
 
     <!--테마-->
     <br>
-    <h5 class="mb-3"><strong>여기는 어떤 곳인가요?</strong></h5>
+    <h5 class="mb-3"><strong>여기는 어떤 곳인가요? (해시태그 들어갈 공간)</strong></h5>
     <body class="row">
         <div class="col-md-6 mb-3" style="border: 1px solid black; padding: 10px;">
             <label for="name"><img src="images/hamburger.png" class="minimize"> 내가 먹어 본 인생 햄버거</label>
@@ -164,9 +167,17 @@
     <!--리뷰저장버튼-->
     <div class="mb-4"></div>
     <div class="flex-box-container">
-     <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="submit">저장</button>
-     <a href="main-page-logined.html">
-         <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="submit">홈으로</button>
+     	<a href="/store/update.do?store_no=${store.store_num }">
+	     <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="button" value="수정">수정
+	     </button>
+	    </a>
+	    <a href="/store/delete.do?store_no=${store.store_num }">
+          <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="button" value="삭제">삭제
+          </button>
+     	</a>
+     <a href="../main-page-logined.jsp">
+         <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="submit">홈으로
+         </button>
         </a>
     </div>
 

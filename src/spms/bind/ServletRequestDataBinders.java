@@ -10,6 +10,8 @@ import javax.servlet.ServletRequest;
 public class ServletRequestDataBinders {
 	public static Object bind(ServletRequest request, Class<?> dataType, String dataName) throws Exception {
 		//생성해야 될 대상이 PrimitiveType일 경우
+		System.out.println("dataName======================" + dataName);
+		System.out.println("value=========================" + request.getParameter(dataName));
 		if(isPrimitiveType(dataType)) {
 			return createValueObject(dataType, request.getParameter(dataName));
 		} //dataType이 일반 VO객체일 경우
@@ -47,6 +49,7 @@ public class ServletRequestDataBinders {
 	private static Method findSetter(Class<?> type, String name) {
 		//해당 클래스 타입이 가진 모든 메소드 추출
 		//spms.vo.Member
+		System.out.println("name=========="+name);
 		Method[] methods = type.getMethods();
 		
 		String propName = null;

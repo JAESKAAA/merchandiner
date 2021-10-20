@@ -54,10 +54,10 @@
                       <a href="Mailto:merchanDiner@example.com?Subject=이메일%20a문의"><i class="far fa-paper-plane fa-2x"></i><div class="col-md-12 ">이메일 문의</div></a>
                     </div>
                     <div class="row modal-login-box">
-                      <a href="mypage.html"><i class="far fa-user-circle fa-2x"></i><div class="col-md-12 ">마이 페이지</div></a>
+                      <a href="mypage.jsp"><i class="far fa-user-circle fa-2x"></i><div class="col-md-12 ">마이 페이지</div></a>
                     </div>
                     <div class="row modal-login-box">
-                      <a href="Detail-page-enroll.jsp"><i class="fas fa-home fa-2x"></i><div class="col-md-12 ">맛집 등록</div></a>
+                      <a href="store/Detail-page-enroll.jsp"><i class="fas fa-home fa-2x"></i><div class="col-md-12 ">맛집 등록</div></a>
                     </div>
                 </div>  
                 <!--modal-footer : 모달 창 콘텐츠의 푸터영역-->
@@ -97,7 +97,7 @@
         <!--카드 1 영역-->
         <div class="row main-section-inner">
           <div class="container out-space">
-            <h4 class="title-head">열혈 MerchanDiner</h1>
+            <h4 class="title-head">검색결과</h1>
             <h6>최근 1주일동안 활발히 활동한 머천다이너분들입니다.</h3><br>
               <div class="card-box">
                 <a href="홍대치킨맛집new.html">

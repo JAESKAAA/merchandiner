@@ -122,11 +122,11 @@
         <div class="row">
           <div class="col-md-3"></div>
           <div class="col-md-6">
-            <div class="container">
-              <input type="text" class="search-box" placeholder="테마지도를 검색해보세요">
-              <a href="SearchPage.html"><i class="fas fa-search fa-2x" id="icon-color"></i></a>
-            </div>
-             </div>
+            <form action="/store/search.do" method="post" class="container">
+              <input type="text" class="search-box" name="search-value" placeholder="테마지도를 검색해보세요">
+              <input type="submit"  value="검색"></button>
+            </form>
+          </div>
           <div class="col-md-3"></div>
         </div>
         <!--카드 1 영역-->

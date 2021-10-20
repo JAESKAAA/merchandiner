@@ -1,7 +1,7 @@
 package spms.vo;
 
 public class Store {
-	private String store_num;
+	private int store_num;
 	private String store_name;
 	private String store_address;
 	private String type;
@@ -9,10 +9,10 @@ public class Store {
 	private String latitude;
 	private String hashTag;
 	
-	public String getStore_num() {
+	public int getStore_num() {
 		return store_num;
 	}
-	public Store setStore_num(String store_num) {
+	public Store setStore_num(int store_num) {
 		this.store_num = store_num;
 		return this;
 	}
@@ -57,6 +57,12 @@ public class Store {
 	public Store setHashTag(String hashTag) {
 		this.hashTag = hashTag;
 		return this;
+	}
+	@Override
+	public String toString() {
+		return "Store [store_num=" + store_num + ", store_name=" + store_name + ", store_address=" + store_address
+				+ ", type=" + type + ", longitude=" + longitude + ", latitude=" + latitude + ", hashTag=" + hashTag
+				+ "]";
 	}
 	
 	

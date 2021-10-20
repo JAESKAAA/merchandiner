@@ -91,11 +91,13 @@
       </div>
     </div>
     <div class="flex-box">
-      <div class="mini-box text-center sm-card-custom">
-        <p class="img">🍜</p>
-        <h5 style="padding-bottom: 30px;"><b>나의 맛집</b></h5>
-        <p>내가 좋아하는 맛집을 평가해봐요!</p>
-      </div>
+    	<a href="/store/list.do">
+	      <div class="mini-box text-center sm-card-custom">
+	        <p class="img">🍜</p>
+	        <h5 style="padding-bottom: 30px;"><b>나의 맛집</b></h5>
+	        <p>내가 좋아하는 맛집을 평가해봐요!</p>
+	      </div>
+      	</a>
       <div class="mini-box text-center sm-card-custom">
         <p class="img">💖</p>
         <h5 style="padding-bottom: 30px;"><b>내가 받은 하트의 갯수는?</b></h5>
