@@ -57,13 +57,13 @@ pageEncoding="UTF-8"%>
       <!--카드 1 영역-->
       <div class="row main-section-inner" style="margin-bottom : 90px;">
         <div class="container out-space">
-          <h1 class="title-head">검색 결과 :  </h1>
-            <div class="card-box">
+          <h1 class="title-head">내가 등록한 맛집들 :  </h1>
+            <div class="card-box" style="justify-content: flex-start;">
 	              <c:forEach var="store" items="${stores }">
-         			 <a href="detail.do?store_num=${store.store_num }">
-		                <div class="col-md-2 sm-card">
+         			 <a href="detail.do?store_num=${store.store_num }&customer=${Customer.id}">
+		                <div class="col-md-2 sm-card" style="margin-right: 20px;">
 		                  <div class="sm-card-inner">
-		                    <img class="emoji" src="../emoji/woman.png" alt="">
+		                    <img class="emoji" src="../emoji/hamburger.png" alt="">
 		                  </div>
 		                  <div class="sm-card-inner">
 							          ${store.store_name}
@@ -71,7 +71,7 @@ pageEncoding="UTF-8"%>
 		                  <div class="sm-card-inner">
 		                  </div>
 		                </div>
-	           	   </a>
+	           		   </a>
               </c:forEach>
             </div>
         </div>

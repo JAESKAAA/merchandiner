@@ -9,14 +9,14 @@ pageEncoding="UTF-8"%>
     <meta http-equiv="X-UA-Compatible" ,content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Merchan, Diner !</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../css/bootstrap.min.css" />
     <!-- <link rel="stylesheet" href="theme_1632474732444.css"> -->
-    <link rel="stylesheet" href="css/SearchPage.css" />
-    <link rel="stylesheet" href="css/main-page.css" />
+    <link rel="stylesheet" href="../css/SearchPage.css" />
+    <link rel="stylesheet" href="../css/main-page.css" />
 
     <!-- <link rel="stylesheet" href="css/main-page.css" /> -->
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery-3.6.0.min.js"></script>
     <script
       src="https://kit.fontawesome.com/84aa3774b7.js"
       crossorigin="anonymous"
@@ -59,11 +59,11 @@ pageEncoding="UTF-8"%>
         <div class="container out-space">
           <h1 class="title-head">검색 결과 :  </h1>
             <div class="card-box">
-              <c:forEach var="store" items="${stores }">
-              	<a href="Detail-page.jsp">
+              <c:forEach var="store" items="${searchValue }">
+              	<a href="detail.do?store_num=${store.store_num }">
 	                <div class="col-md-2 sm-card">
 	                  <div class="sm-card-inner">
-	                    <img class="emoji" src="emoji/woman.png" alt="">
+	                    <img class="emoji" src="../emoji/hamburger.png" alt="">
 	                  </div>
 	                  <div class="sm-card-inner">
 						          ${store.store_name}

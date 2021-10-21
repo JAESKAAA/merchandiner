@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-    
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/core" prefix="c" %>
     <!DOCTYPE html>
     <html lang="ko">
       <head>
@@ -85,20 +84,18 @@
 <body class="center">
     <!--가게이름 및 주소-->
     <div class="container">
-       	<input type="hidden" name="store_num" value="${store.store_num }">
-       	<input type="hidden" name="customer" value="${Customer.id }">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto" style="margin-bottom: 80px;">
-                <h5 class="mb-3" style="color: rgb(160, 28, 85);"><strong>${store.store_name }</strong></h5>
+                <h5 class="mb-3" style="color: rgb(160, 28, 85);"><strong>가게이름</strong></h5>
                 <div class="row">
                     <div class="col-md-6 mb-3">
-                        <label for="name">${store.store_address }</label>
+                        <label for="name">가게주소</label>
                     </div>
                 </div>
 
     <!--테마-->
     <br>
-    <h5 class="mb-3"><strong>여기는 어떤 곳인가요? (해시태그 들어갈 공간)</strong></h5>
+    <h5 class="mb-3"><strong>여기는 어떤 곳인가요?</strong></h5>
     <body class="row">
         <div class="col-md-6 mb-3" style="border: 1px solid black; padding: 10px;">
             <label for="name"><img src="images/hamburger.png" class="minimize"> 내가 먹어 본 인생 햄버거</label>
@@ -160,41 +157,29 @@
         </div>
         <br>
         <br>
-        
-        <div style="border: 1px solid black">
-    <c:forEach var="comment" items="${projects }">
-         <tr>
-            <td>${comment.id} : ${comment.contents }</td>
-         </tr>
-      </c:forEach>
-   </div>
-        <div class="flex-box-container" style="justify-content: flex-end;" >
-	        <form action="/comment/add.do?store_num=${store.store_num }&customer=${Customer.id}" method="post">
-	        	<input type="text" name="contents" style="width:100%;" rows="5" id="contents"></input>
-	        	<button class="btn btn-primary btn-lg btn-block" type="submit" value="저장">저장</button>
-	        </form>
-        </div>
     </div>   
+    
+    
+    
+    
     
 
     
     <!--리뷰저장버튼-->
+    <form action="add.do" method="post" >
+    <input type="text"  name="id"></input>
+    <input type="text"  name="store_num"></input>
+    <input type="text" name="contents" style="width:100%; height: 100px" rows="5" id="textarea"></input>
     <div class="mb-4"></div>
     <div class="flex-box-container">
-     	<a href="/store/update.do?store_num=${store.store_num }">
-	     <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="button" value="수정">수정
-	     </button>
-	    </a>
-	    <a href="/store/delete.do?store_num=${store.store_num }">
-          <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="button" value="삭제">삭제
-          </button>
-     	</a>
-     <a href="../main-page.jsp">
-         <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="button">홈으로
-         </button>
+     <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="submit">등록</button>
+     <a href="main-page-logined.html">
+         <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="submit">홈으로</button>
         </a>
     </div>
+    </form>
 
+		
     <!--하단-->
     <footer class="my-3 text-center text-small">
         <p class="mb-1">&copy; 2021 Merchar, Diner!</p>

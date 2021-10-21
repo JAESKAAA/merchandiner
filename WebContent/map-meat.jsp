@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page import="spms.vo.Customer" %>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,7 +45,7 @@
               <i class="fas fa-arrow-left fa-lg"></i></button
           ></a>
           <button class="btn btn-success wide-button shadow btn-bg-color">
-            🍗허지윤님고기(가 들어간)용산맛집🍖
+            🍗지윤님고기(가 들어간)용산맛집🍖
           </button>
           <button class="btn btn-success shadow btn-bg-color" onclick="heart()">
             <div style="width: 20px; height: 25px;">
@@ -142,209 +144,56 @@
                     data-bs-target="#map-page-modal"
                   ></i>
                 </div>
-                <div class="place-name">서울케밥</div>
+                 <form action="/store/add.do" method="post">
+	                  <div >
+	              	    <input type="text" id="store_name" name="store_name" placeholder="가게이름을 입력해주세요">
+	                  </div>
+	                  <div >
+	              	  	 <input type="text" id="store_address" name="store_address" placeholder="가게주소를 입력해주세요">
+	                  </div>
+	                  <div >
+	              	 	 <input type="text" id="hashTag" name="hashTag"placeholder="#해시테그를 입력해주세요 " >
+	              	 	 <input type="hidden" id="hashTag" name="id" value="${Customer.id }"placeholder="#해시테그를 입력해주세요 " >
+	              	  </div>
+	              	  <div>
+	              	 	 <input type="submit" value="제출"  >
+	              	 </div>
+            	  </form>
+              </div>
+	            <div class="list-item">
+	              	<div class="list-overlay shadow" id="box1">
+	                	<div class="read-more">
+		                  <a>
+		                    <i class="fas fa-expand-alt"></i>
+		                  </a>
+                   		 </div>
+         	 		</div>
+              	</div>
+              <c:forEach var="store" items="${stores }">
+                <div class="place-name">${store.store_name }</div>
                 <div class="place-address">
-                  서울 용산구 새창로 181 선인상가 1층 11호
+                  ${store.store_address }
                 </div>
-                <div class="theme-name">#케밥 #도너케밥</div>
-              </div>
-            </div>
-            <div class="list-item">
-              <div class="list-overlay shadow" id="box1">
-                <div class="read-more">
-                  <a>
-                    <i class="fas fa-expand-alt"></i>
-                  </a>
+                <div class="theme-name">${store.hashTag }</div>
+                <div class="list-item">
+                  <div class="list-overlay shadow" id="box1">
+                    <div class="read-more">
+                      <a>
+                        <i class="fas fa-expand-alt"></i>
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div class="place-name">더보일러스</div>
-                <div class="place-address">
-                  서울 용산구 청파로 112 나진상가 15동 지하1층
-                </div>
-                <div class="theme-name">#버거맛집 #바베큐맛집</div>
-              </div>
-            </div>
-            <div class="list-item">
-              <div class="list-overlay shadow" id="box2">
-                <div class="read-more">
-                  <a>
-                    <i class="fas fa-expand-alt"></i>
-                  </a>
-                </div>
-                <div class="place-name">양인환대</div>
-                <div class="place-address">
-                  서울 용산구 한강대로40길 14 지상 1층 101호
-                </div>
-                <div class="theme-name">#양고기 #양갈비</div>
-              </div>
-            </div>
-            <div class="list-item">
-              <div class="list-overlay shadow" id="box3">
-                <div class="read-more">
-                  <a>
-                    <i class="fas fa-expand-alt"></i>
-                  </a>
-                </div>
-                <div class="place-name">더백테라스</div>
-                <div class="place-address">서울 용산구 한강대로40길 26 3층</div>
-                <div class="theme-name">#버거맛집 #테라스자리찜</div>
-              </div>
-            </div>
-            <div class="list-item">
-              <div class="list-overlay shadow">
-                <div class="read-more">
-                  <a>
-                    <i class="fas fa-expand-alt"></i>
-                  </a>
-                </div>
-                <div class="place-name">효뜨</div>
-                <div class="place-address">
-                  서울 용산구 한강대로40가길 6 1층 2층
-                </div>
-                <div class="theme-name">#쌀국수 #베트남음식</div>
-              </div>
+              </c:forEach>
             </div>
           </ul>
         </div>
       </div>
       <!--상세페이지 모달 부분-->
-      <div
-        class="modal fade"
-        id="map-page-modal"
-        role="page"
-        aria-labelledby="page"
-        aria-hidden="true"
-        tabindex="-1"
-      >
-        <!--modal-dailog : 모달 창 영역 설정-->
-        <div class="modal-dialog">
-          <!--modal-content : 모달 창 콘텐츠 영역 설정-->
-          <div class="modal-content">
-            <!--modal-header : 모달 창 콘텐츠의 헤더영역-->
-            <div class="modal-header modal-header-custom modal-text-box-header">
-              <div class="row">
-                <div class="col-md-12 modal-text-lg">Tiel'O</div>
-                <div class="col-me-12 modal-text-sm">
-                  서울특별시 강남구 역삼동 강남대로94길 14
-                </div>
-              </div>
-            </div>
-            <!--modal-body : 모달 창 콘텐츠의 바디영역-->
-            <div class="modal-body">
-              <div class="row">
-                <!--맛집 사진관련 창-->
-                <div class="col-md-12">
-                  <div class="modal-body-imgbox">
-                    <div>+</div>
-                    여기를 눌러서 장소와 관련된 사진을 올려주시면 <br />페이지가
-                    더 유익해 질 것 같아요!
-                  </div>
-                </div>
-
-                <div
-                  class="col-md-12 flex-box-container"
-                  style="margin: 25px auto"
-                >
-                  <!--음식점 카테고리-->
-                  <div class="flex-box-container-col left-set">
-                    <div class="col-md-8 flex-box-container-col">
-                      여기는 어떤 곳인가요?
-                    </div>
-                    <div class="flex-box-container-col left-set">
-                      <div class="flex-box-conianer-col">
-                        <button class="btn btn-primary category-icon">
-                          <img src="images/hamburger.png" class="minimize" />
-                          #내가 먹어 본 인생 햄버거
-                        </button>
-                      </div>
-                      <div>
-                        <button class="btn btn-primary category-icon">
-                          <img src="images/hamburger.png" class="minimize" />
-                          #패티 맛집
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                  <!--별점 넣는 칸-->
-                  <div class="col-md-4">
-                    <div class="col-12">짠맛</div>
-                    <div class="col-12">
-                      <div class="starRev">
-                        <span class="starR1 on">별1_왼쪽</span>
-                        <span class="starR2">별1_오른쪽</span>
-                        <span class="starR1">별2_왼쪽</span>
-                        <span class="starR2">별2_오른쪽</span>
-                        <span class="starR1">별3_왼쪽</span>
-                        <span class="starR2">별3_오른쪽</span>
-                        <span class="starR1">별4_왼쪽</span>
-                        <span class="starR2">별4_오른쪽</span>
-                        <span class="starR1">별5_왼쪽</span>
-                        <span class="starR2">별5_오른쪽</span>
-                      </div>
-                    </div>
-                    <div class="col-12"></div>
-                    <div class="col-12">단맛</div>
-                    <div class="col-12">
-                      <div class="starRev">
-                        <span class="starR1 on">별1_왼쪽</span>
-                        <span class="starR2">별1_오른쪽</span>
-                        <span class="starR1">별2_왼쪽</span>
-                        <span class="starR2">별2_오른쪽</span>
-                        <span class="starR1">별3_왼쪽</span>
-                        <span class="starR2">별3_오른쪽</span>
-                        <span class="starR1">별4_왼쪽</span>
-                        <span class="starR2">별4_오른쪽</span>
-                        <span class="starR1">별5_왼쪽</span>
-                        <span class="starR2">별5_오른쪽</span>
-                      </div>
-                    </div>
-                    <div class="col-12"></div>
-                    <div class="col-12">매운맛</div>
-                    <div class="col-12">
-                      <div class="starRev">
-                        <span class="starR1 on">별1_왼쪽</span>
-                        <span class="starR2">별1_오른쪽</span>
-                        <span class="starR1">별2_왼쪽</span>
-                        <span class="starR2">별2_오른쪽</span>
-                        <span class="starR1">별3_왼쪽</span>
-                        <span class="starR2">별3_오른쪽</span>
-                        <span class="starR1">별4_왼쪽</span>
-                        <span class="starR2">별4_오른쪽</span>
-                        <span class="starR1">별5_왼쪽</span>
-                        <span class="starR2">별5_오른쪽</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!--SNS 링크 넣기-->
-                <hr />
-                <div class="col-md-12 flex-box-container-col">
-                  <div>이 장소 공유하기</div>
-                  <div class="menu-toggle-footer flex-box-container">
-                    <a href="#" class="menu-toggle-footer-items"
-                      ><i class="fab fa-facebook fa-lg"></i
-                    ></a>
-                    <a href="#" class="menu-toggle-footer-items"
-                      ><i class="fab fa-instagram fa-lg"></i
-                    ></a>
-                    <a href="#" class="menu-toggle-footer-items"
-                      ><i class="fab fa-youtube fa-lg"></i
-                    ></a>
-                    <a href="#" class="menu-toggle-footer-items"
-                      ><i class="fas fa-comment kakao fa-lg"></i
-                    ></a>
-                  </div>
-                </div>
-              </div>
-            </div>
+     
+             
             <!--modal-footer : 모달 창 콘텐츠의 푸터영역-->
-            <div class="modal-footer">
-              <div class="modal-footer-custom">
-                <!--회원가입 페이지 이동-->
-                <a href="Detail-page.html" class="login-sm">
-                  <button class="btn btn-dark">상세페이지 이동</button>
-                </a>
-              </div>
-            </div>
+           
           </div>
         </div>
       </div>
@@ -364,9 +213,10 @@
         </div>
       </a>
     </div>
+    
     <script
       type="text/javascript"
-      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7f7aaf0e4c0e87d3a6bc257b1b323e35"
+      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=7f7aaf0e4c0e87d3a6bc257b1b323e35&libraries=services"
     ></script>
     <script>
       var mapContainer = document.getElementById("map"), // 지도를 표시할 div
@@ -377,6 +227,9 @@
 
       var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
+      
+      
+      
       // 마커를 표시할 위치와 title 객체 배열입니다
       var positions = [
         {
@@ -407,29 +260,12 @@
       for (var i = 0; i < positions.length; i++) {
         addMarker(positions[i].latlng, positions[i].title, i);
 
-        // var title = positions[i].title;
-        // // 마커를 클릭했을 때 마커 위에 표시할 인포윈도우를 생성합니다
-        // var iwContent = '<div style="padding:5px;">Hello World!</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-        //     iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-        // // 인포윈도우를 생성합니다
-        // var infowindow = new kakao.maps.InfoWindow({
-        //     content: iwContent,
-        //     removable: iwRemoveable
-        // });
-
-        // kakao.maps.event.addListener(marker, 'click', function () {
-        //     main(title);
-        // });
       }
 
       const boxInner = document.querySelector(".inner-box");
 
       function addMarker(latlng, title, index) {
-        var imageSize = new kakao.maps.Size(24, 35);
-
-        // 마커 이미지를 생성합니다
-        var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+    
 
         // 마커 이미지의 이미지 크기 입니다
         var imageSize = new kakao.maps.Size(24, 35);
@@ -446,6 +282,40 @@
           image: markerImage, // 마커 이미지
         });
 
+        var geocoder = new kakao.maps.services.Geocoder();
+       
+     // 주소로 좌표를 검색합니다
+     geocoder.addressSearch('서울특별시 용산구 한강로1가 45-1', function(result, status) {
+
+         // 정상적으로 검색이 완료됐으면 
+          if (status === kakao.maps.services.Status.OK) {
+
+             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+             // 결과값으로 받은 위치를 마커로 표시합니다
+             var nowmarker = new kakao.maps.Marker({
+                 map: map,
+                 position: coords
+             });
+
+             // 인포윈도우로 장소에 대한 설명을 표시합니다
+             var infowindow = new kakao.maps.InfoWindow({
+                 content: '<div style="width:150px;text-align:center;padding:6px 0;">우리회사</div>'
+             });
+             infowindow.open(map, nowmarker);
+
+             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+             map.setCenter(coords);
+         } 
+     });    
+        
+        
+        
+        
+        
+        
+        
+        
         kakao.maps.event.addListener(marker, "click", function () {
           page(title);
         });

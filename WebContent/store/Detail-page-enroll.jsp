@@ -81,7 +81,7 @@
 </style>
 </head>
 <body class="center">
-    <form action="add.do" method="post" class="container">
+    <form action="/store/add.do" method="post" class="container">
         <!--가게이름 및 주소-->
         <div class="container">
             <div class="input-form-backgroud row">
@@ -124,8 +124,9 @@
         <!--리뷰저장버튼-->
         <div class="mb-4"></div>
         <div class="flex-box-container">
+        <input type="hidden" name="id", value="${Customer.id}" />
         <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="submit" value="저장">저장</button>
-        <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="button" value="취소" onclick="location.href='../main-page-logined.jsp'">홈으로</button>
+        <button style="font-size: 15px;" id="red" class="btn btn-primary btn-lg btn-block " type="button" value="취소" onclick="location.href='../main-page.jsp'">홈으로</button>
         </div>
     </form>
     <!--하단-->

@@ -5,7 +5,7 @@ import java.util.Map;
 import spms.annotation.Component;
 import spms.bind.DataBinding;
 import spms.dao.StoreDAO;
-import spms.vo.Store;
+import spms.vo.Customer;
 
 @Component("/store/detail.do")
 public class StoreDetailController implements Controller, DataBinding {
@@ -21,6 +21,7 @@ public class StoreDetailController implements Controller, DataBinding {
 		// TODO Auto-generated method stub
 		return new Object[] {
 				"store_num", Integer.class,
+				"id", spms.vo.Customer.class
 		};
 	}
 	
@@ -29,10 +30,11 @@ public class StoreDetailController implements Controller, DataBinding {
 	@Override
 	public String execute(Map<String, Object> model) throws Exception {
 		Integer no = (Integer) model.get("store_num");
-		System.out.println(no);
+		System.out.println("디테일드 넘버왔을때 넘버"+no);
 		model.put("stores", storeDAO.selectlist());
 		//셀렉트원 잡아주자
 		model.put("store", storeDAO.selectOne(no));
+		
 		return "/store/Detail-page.jsp";
 	}
 	

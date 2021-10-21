@@ -20,7 +20,7 @@ public class StoreUpdateController implements Controller, DataBinding {
 	public Object[] getDataBinders() {
 		// TODO Auto-generated method stub
 		return new Object[] {
-				"store_no", Integer.class,
+				"store_num", Integer.class,
 				"store", spms.vo.Store.class
 		};
 	}
@@ -32,7 +32,7 @@ public class StoreUpdateController implements Controller, DataBinding {
 		System.out.println(store.toString());
 		
 		if(store.getStore_name() == null) {
-			Integer no = (Integer) model.get("store_no");
+			Integer no = (Integer) model.get("store_num");
 			Store storeInfo = storeDAO.selectOne(no);
 			model.put("store", storeInfo);
 			System.out.println(storeInfo.toString());
@@ -40,7 +40,7 @@ public class StoreUpdateController implements Controller, DataBinding {
 		}else {
 			System.out.println(store.toString());
 			storeDAO.update(store);
-			return "/store/Detail-page.jsp";
+			return "redirect:list.do";
 		}
 	}
 	

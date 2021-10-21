@@ -18,13 +18,13 @@ public class StoreDeleteController implements Controller, DataBinding{
 	@Override
 	public Object[] getDataBinders() {
 		return new Object[] {
-				"store_no", Integer.class
+				"store_num", Integer.class
 		};
 	}
 	
 	@Override
 	public String execute(Map<String, Object> model) throws Exception {
-		Integer no = (Integer)model.get("store_no");
+		Integer no = (Integer)model.get("store_num");
 		storeDAO.delete(no);
 		
 		return "redirect:list.do";

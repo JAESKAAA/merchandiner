@@ -44,7 +44,7 @@
               <i class="fas fa-arrow-left fa-lg"></i></button
           ></a>
           <button class="btn btn-success wide-button shadow btn-bg-color">
-            허지윤님의 맛집 지도
+            {허지윤님의 맛집 지도
           </button>
           <button class="btn btn-success shadow btn-bg-color" onclick="heart()">
             <div style="width: 20px; height: 25px;">

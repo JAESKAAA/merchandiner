@@ -81,7 +81,7 @@
 </style>
 </head>
 <body class="center">
-    <form action="update.do" method="post" class="container">
+    <form action="/store/update.do" method="post" class="container">
     	<input type="hidden" name="store_num" value="${store.store_num }">
         <!--가게이름 및 주소-->
         <div class="container">
