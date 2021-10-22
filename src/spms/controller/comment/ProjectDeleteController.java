@@ -19,15 +19,15 @@ public class ProjectDeleteController implements Controller, DataBinding {
 	@Override
 	public Object[] getDataBinders() {
 		return new Object[] {
-			"no", Integer.class
+			"comment_num", Integer.class
 		};
 	}
 	
 	@Override
 	public String execute(Map<String, Object> model) throws Exception {
-		Integer no = (Integer)model.get("no");
+		Integer no = (Integer)model.get("comment_num");
 		commentDAO.delete(no);
 		
-		return "redirect:list.do";
+		return "redirect:/store/detail.do?store_num="+no;
 	}
 }

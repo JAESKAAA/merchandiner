@@ -35,8 +35,10 @@ public class ProjectUpdateController implements Controller, DataBinding {
 			model.put("project", detailInfo);
 			return "/project/ProjectUpdateForm.jsp";
 		} else {
+			Integer no = (Integer)model.get("no");
+			Comment detailInfo = commentDAO.selectOne(no);
 			commentDAO.update(comment);
-			return "redirect:list.do";
+			return "redirect:/store/detail.do?store_num="+no;
 		}
 	}
 }

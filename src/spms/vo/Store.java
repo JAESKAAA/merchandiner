@@ -8,6 +8,7 @@ public class Store {
 	private String longitude;
 	private String latitude;
 	private String hashTag;
+	private String id;
 	
 	public int getStore_num() {
 		return store_num;
@@ -58,12 +59,22 @@ public class Store {
 		this.hashTag = hashTag;
 		return this;
 	}
+	
+	public String getId() {
+		return id;
+	}
+	public Store setId(String id) {
+		this.id = id;
+		return this;
+	}
 	@Override
 	public String toString() {
 		return "Store [store_num=" + store_num + ", store_name=" + store_name + ", store_address=" + store_address
 				+ ", type=" + type + ", longitude=" + longitude + ", latitude=" + latitude + ", hashTag=" + hashTag
-				+ "]";
+				+ ", id=" + id + "]";
 	}
+	
+	
 	
 	
 }

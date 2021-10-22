@@ -60,7 +60,7 @@ pageEncoding="UTF-8"%>
           <h1 class="title-head">내가 등록한 맛집들 :  </h1>
             <div class="card-box" style="justify-content: flex-start;">
 	              <c:forEach var="store" items="${stores }">
-         			 <a href="detail.do?store_num=${store.store_num }&customer=${Customer.id}">
+         			 <a href="detail.do?store_num=${store.store_num }&id=${store.id}">
 		                <div class="col-md-2 sm-card" style="margin-right: 20px;">
 		                  <div class="sm-card-inner">
 		                    <img class="emoji" src="../emoji/hamburger.png" alt="">

@@ -10,6 +10,7 @@ public class Comment {
 	private String taste_salty;
 	private String taste_sweety;
 	private String taste_spicy;
+	private int comment_num;
 	
 	public String getId() {
 		return id;
@@ -59,6 +60,12 @@ public class Comment {
 	public Comment setTaste_spicy(String taste_spicy) {
 		this.taste_spicy = taste_spicy;
 		return this;
+	}
+	public int getComment_num() {
+		return comment_num;
+	}
+	public void setComment_num(int comment_num) {
+		this.comment_num = comment_num;
 	}
 	
 	

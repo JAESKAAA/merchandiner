@@ -61,7 +61,8 @@ public class DispatcherServlet extends HttpServlet {
 			//Controller pageController = (Controller)sc.getAttribute(servletPath);
 			Controller pageController = (Controller)ctx.getBean(servletPath);
 			HashMap<String, Object> model = new HashMap<String, Object>();
-			model.put("session", request.getSession());
+			
+		         model.put("session", request.getSession()); //보존
 			
 			//pageController객체가 DataBinding인터페이스를 상속받았다면
 			//만들어야 할 객체가 존재하는  pageController라면

@@ -130,11 +130,12 @@ public class MySqlStoreDAO implements StoreDAO {
 		Statement stmt = null;
 		ResultSet rs = null;
 		
-		String sqlSelect = "SELECT A.ID, B.STORE_NAME, B.STORE_ADDRESS, B.STORE_NUM FROM CUSTOMER A JOIN BOARD B ON A.ID=B.ID;";
+		String sqlSelect = "SELECT A.ID, B.ID, B.STORE_NAME, B.STORE_ADDRESS, B.STORE_NUM FROM CUSTOMER A JOIN BOARD B ON A.ID=B.ID;";
 		
 		try {
 			connection = ds.getConnection();
 			stmt = connection.createStatement();
+			
 			rs = stmt.executeQuery(sqlSelect);
 			
 			ArrayList<Store> stores = new ArrayList<>();
@@ -142,7 +143,8 @@ public class MySqlStoreDAO implements StoreDAO {
 				stores.add(new Store()
 									.setStore_num(rs.getInt("STORE_NUM"))
 									.setStore_name(rs.getString("STORE_NAME"))
-									.setStore_address(rs.getString("STORE_ADDRESS")));
+									.setStore_address(rs.getString("STORE_ADDRESS"))
+									.setId(rs.getString("ID")));
 			}
 			return stores;
 			
@@ -232,7 +234,8 @@ public class MySqlStoreDAO implements StoreDAO {
 						.setType(rs.getString("TYPE"))
 						.setLongitude(rs.getString("LONGITUDE"))
 						.setLatitude(rs.getString("LATITUDE"))
-						.setHashTag(rs.getString("HASHTAG"));
+						.setHashTag(rs.getString("HASHTAG"))
+						.setId(rs.getString("ID"));
 			}else {
 				throw new Exception("해당 번호의 게시글을 찾을 수 없습니다.");
 			}

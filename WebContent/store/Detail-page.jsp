@@ -12,6 +12,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/main-page.css">
+    <link rel="stylesheet" href="css/page.css" />
+    <link rel="stylesheet" href="css/map.css" />
+    <link rel="stylesheet" href="css/map-modal-page.css" />
     <!-- <link rel="stylesheet" href="project-style.css"> -->
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-3.6.0.min.js"></script>
@@ -79,6 +82,8 @@
         margin-top: 45px;
         margin-left: 10px;
     }
+
+
    
 </style>
 </head>
@@ -86,7 +91,7 @@
     <!--가게이름 및 주소-->
     <div class="container">
        	<input type="hidden" name="store_num" value="${store.store_num }">
-       	<input type="hidden" name="customer" value="${Customer.id }">
+       	<input type="hidden" name="id" value="${store.id }">
         <div class="input-form-backgroud row">
             <div class="input-form col-md-12 mx-auto" style="margin-bottom: 80px;">
                 <h5 class="mb-3" style="color: rgb(160, 28, 85);"><strong>${store.store_name }</strong></h5>
@@ -161,15 +166,29 @@
         <br>
         <br>
         
-        <div style="border: 1px solid black">
-    <c:forEach var="comment" items="${projects }">
-         <tr>
-            <td>${comment.id} : ${comment.contents }</td>
-         </tr>
-      </c:forEach>
-   </div>
+              <!--Map 가게 목록 부분-->
+    
+            <div class="list-item" style="display: flex; flex-direction:column; ">
+                <c:forEach var="comment1" items="${comments }" varStatus="status">
+                    <div style="display: flex; flex-direction: row; justify-content: space-between; width:100%; align-items: center;">
+                        <div class="list-overlay shadow" id="box0" style="display: flex; flex-direction: column; width:80%;">
+                            <div class="place-name">${comment1.id}</div>
+                            <div class="place-address">
+                                ${comment1.contents}
+                            </div>
+                            <div class="theme-name" style="font-size: 12px;">${comment1.regDate}</div>
+                        </div>
+                        <div>
+                            <button type="button" onclick="location.href='/comment/update.do?'">수정</button>
+                            <button type="button" onclick="location.href='/comment/delete.do?comment_num=${comment1.comment_num}'">삭제</button>
+                        </div>
+                    </div>
+          	    </c:forEach>
+            </div>
+         
+
         <div class="flex-box-container" style="justify-content: flex-end;" >
-	        <form action="/comment/add.do?store_num=${store.store_num }&customer=${Customer.id}" method="post">
+	        <form action="/comment/add.do?store_num=${store.store_num }&id=${store.id}" method="post">
 	        	<input type="text" name="contents" style="width:100%;" rows="5" id="contents"></input>
 	        	<button class="btn btn-primary btn-lg btn-block" type="submit" value="저장">저장</button>
 	        </form>
@@ -207,5 +226,6 @@
         return false;
     });
     </script>
+   
 </body>
 </html>

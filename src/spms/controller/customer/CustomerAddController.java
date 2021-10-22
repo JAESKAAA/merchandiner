@@ -36,7 +36,7 @@ public class CustomerAddController implements Controller, DataBinding {
 		//리턴될 조회 결과 맵에 담음
 		Customer customer = (Customer)model.get("customer");
 		if(customer.getId() == null) {
-			return "../sign-up.jsp";
+			return "/customer/sign-up.jsp";
 		} else {
 			customerDAO.insert(customer);
 			return "redirect:../main-page.jsp";

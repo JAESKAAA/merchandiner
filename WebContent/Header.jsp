@@ -97,7 +97,8 @@
                     </div>
                     <div class="row modal-login-box">
                       <a href="map-meat.jsp"><i class="fas fa-map fa-2x"></i><div class="col-md-12 ">맛집 지도에서 등록</div></a>
-                    </div>        
+                    </div>   
+                 
                  </c:if>
                     
                     

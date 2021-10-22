@@ -22,21 +22,24 @@ public class ProjectAddController implements Controller, DataBinding {
 	public Object[] getDataBinders() {
 		return new Object[] {
 				"store_num", Integer.class,
-				"id", spms.vo.Customer.class,
-				"project", spms.vo.Comment.class
+				"id", String.class,
+				"contents", spms.vo.Comment.class
 		};
 	}
 	
 	@Override
 	public String execute(Map<String, Object> model) throws Exception {
-		Comment comment = (Comment)model.get("project");
+		Comment comment = (Comment)model.get("contents");
 		Integer no = (Integer)model.get("store_num");
-		Customer customer = (Customer)model.get("id");
-		if(comment.getId() == null) {
+		String id= (String)model.get("id");
+		if(comment.getContents() == null) {
+			System.out.println("아이디 널값이라 안넘어갈거임");
 			return "/store/Detail-page.jsp";
 		} else {
-			commentDAO.insert(comment, customer, no);
-			return "redirect:list.do";
+			commentDAO.insert(comment, id, no);
+			System.out.println("인서트 메소드 실행됐음");
+
+			return "redirect:/store/detail.do?store_num="+no;
 		}
 	}
 }

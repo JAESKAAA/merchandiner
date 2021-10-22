@@ -22,6 +22,12 @@
         letter-spacing: 1px;
         font-weight: 100;
       }
+      
+      #search-button{
+      	background-color:transparent;
+     	 border: none;
+        
+      }
     </style>
   </head>
 
@@ -43,7 +49,7 @@
             <div class="container">
             <form action="/store/search.do" method="post">
               <input type="text" class="search-box" name="value" placeholder="테마지도를 검색해보세요">
-              <button type="submit"><i class="fas fa-search fa-2x" id="icon-color"></i></button> 
+              <button type="submit" id="search-button"><i class="fas fa-search fa-2x" id="icon-color"></i></button> 
               
               </form>
             </div>
