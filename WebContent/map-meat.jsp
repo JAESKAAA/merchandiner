@@ -15,11 +15,11 @@
       integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" href="css/bootstrap.css" />
-    <link rel="stylesheet" href="css/main-page.css" />
-    <link rel="stylesheet" href="css/page.css" />
-    <link rel="stylesheet" href="css/map.css" />
-    <link rel="stylesheet" href="css/map-modal-page.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/bootstrap.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/main-page.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/page.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/map.css" />
+    <link rel="stylesheet" href="<%=request.getContextPath() %>/css/map-modal-page.css" />
     <script
       src="https://kit.fontawesome.com/84aa3774b7.js"
       crossorigin="anonymous"
@@ -45,7 +45,8 @@
               <i class="fas fa-arrow-left fa-lg"></i></button
           ></a>
           <button class="btn btn-success wide-button shadow btn-bg-color">
-            🍗지윤님고기(가 들어간)용산맛집🍖
+            
+           ${Customer.nickname }님고기(가 들어간)용산맛집🍖
           </button>
           <button class="btn btn-success shadow btn-bg-color" onclick="heart()">
             <div style="width: 20px; height: 25px;">
@@ -160,6 +161,7 @@
 	              	 </div>
             	  </form>
               </div>
+              <c:forEach var="store" items="${stores }">
 	            <div class="list-item">
 	              	<div class="list-overlay shadow" id="box1">
 	                	<div class="read-more">
@@ -167,24 +169,15 @@
 		                    <i class="fas fa-expand-alt"></i>
 		                  </a>
                    		 </div>
-         	 		</div>
-              	</div>
-              <c:forEach var="store" items="${stores }">
                 <div class="place-name">${store.store_name }</div>
                 <div class="place-address">
                   ${store.store_address }
                 </div>
                 <div class="theme-name">${store.hashTag }</div>
-                <div class="list-item">
-                  <div class="list-overlay shadow" id="box1">
-                    <div class="read-more">
-                      <a>
-                        <i class="fas fa-expand-alt"></i>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </c:forEach>
+              	</div>
+         	 		</div>
+                 </c:forEach>
+             
             </div>
           </ul>
         </div>
@@ -383,5 +376,7 @@
               });
           });
     </script>
+    
+
   </body>
 </html>

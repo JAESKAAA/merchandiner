@@ -18,16 +18,17 @@ public class StoreListController implements Controller {
 	}
 	
 	
-	
 	@Override
 	public String execute(Map<String, Object> model) throws Exception {
-		Customer customerId = (Customer)model.get("customerId");
-		Store store = (Store)model.get("storeID");
-		
+		String pageName = (String)model.get("pageName");
 		model.put("stores", storeDAO.selectlist());
 		System.out.println(storeDAO.selectlist());
-		return "/store/MyStoreList.jsp";
+		System.out.println(pageName);
+		if(pageName != null && pageName.equals("0")) {
+			return "/map-meat.jsp";
+		} else {
+			return "/store/MyStoreList.jsp";
+		}
 	}
-	
 	
 }
